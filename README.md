@@ -45,8 +45,8 @@ Follow these steps to set up the project locally.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/cloth-shop-fullstack.git
-cd cloth-shop-fullstack
+git clone https://github.com/YOUR_USERNAME/cloth-shop.git
+cd cloth-shop
 ```
 
 ### 2. Backend Setup
