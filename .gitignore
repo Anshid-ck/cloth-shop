@@ -18,6 +18,10 @@ db.sqlite3-journal
 .env
 .env.local
 .env.*
+*.env
+
+# Django static files
+staticfiles/
 
 # Node
 node_modules/
