@@ -1,0 +1,17 @@
+Django
+gunicorn
+whitenoise
+psycopg2-binary
+django-environ
+cloudinary
+django-cloudinary-storage
+djangorestframework
+djangorestframework-simplejwt
+django-cors-headers
+django-filter
+social-auth-app-django
+stripe
+Pillow
+django-storages
+tmdbv3api
+requests

@@ -1,0 +1,38 @@
+@tailwind utilities;
+@import "tailwindcss";
+
+/* ========== T-SHIRT CAROUSEL NAVIGATION ARROWS ========== */
+.tshirt-swiper-container .swiper-button-next,
+.tshirt-swiper-container .swiper-button-prev {
+    --swiper-navigation-color: #f5ebe0 !important;
+    background-color: white !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.tshirt-swiper-container .swiper-button-next:hover,
+.tshirt-swiper-container .swiper-button-prev:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.tshirt-swiper-container .swiper-button-next::after,
+.tshirt-swiper-container .swiper-button-prev::after {
+    font-size: 18px !important;
+    font-weight: bold;
+    color: #f5ebe0 !important;
+}
+
+/* Pagination dots styling */
+.tshirt-swiper-container .swiper-pagination-bullet {
+    background-color: #d5c4a1;
+    opacity: 0.5;
+}
+
+.tshirt-swiper-container .swiper-pagination-bullet-active {
+    background-color: #f5ebe0;
+    opacity: 1;
+}
