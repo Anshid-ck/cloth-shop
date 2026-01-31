@@ -117,14 +117,14 @@ CSRF_TRUSTED_ORIGINS.extend([
 CSRF_TRUSTED_ORIGINS = list(set(CSRF_TRUSTED_ORIGINS))
 
 
-ALLOWED_HOSTS = env.list(
-    'ALLOWED_HOSTS',
-    default=[
-        "localhost",
-        "127.0.0.1",
-        "pogieecloth-fashion.onrender.com"
-    ]
-)
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+ALLOWED_HOSTS.extend([
+    "localhost",
+    "127.0.0.1",
+    "pogieecloth-fashion.onrender.com",
+    ".onrender.com"
+])
+ALLOWED_HOSTS = list(set(ALLOWED_HOSTS))
 
 
 ROOT_URLCONF = 'backend.urls'
