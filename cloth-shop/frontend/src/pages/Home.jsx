@@ -38,18 +38,18 @@ export default function Home() {
 
       // Each request is made safe so it won't crash if endpoint not ready yet
       const [bannersRes, productsRes, categoryBannerRes, bottomRes, hoodiesGridRes, jacketsGridRes, promoBannersRes, tshirtGridRes, shoesGridRes, shoesCardRes] = await Promise.all([
-        API.get('/products/banners/').catch(() => ({ data: [] })),
-        API.get('/products/products/?is_featured=true').catch(() => ({
+        API.get('/api/products/banners/').catch(() => ({ data: [] })),
+        API.get('/api/products/products/?is_featured=true').catch(() => ({
           data: { results: [] },
         })),
-        API.get('/products/category-cards/').catch(() => ({ data: [] })),
-        API.get('products/bottom-styles/').catch(() => ({ data: [] })),
-        API.get('/products/mens-hoodie-grid/').catch(() => ({ data: [] })),
-        API.get('/products/jackets-grid/').catch(() => ({ data: [] })),
-        API.get('/products/promotional-banners/').catch(() => ({ data: [] })),
-        API.get('/products/tshirt-grid/').catch(() => ({ data: [] })),
-        API.get('/products/shoes-grid/').catch(() => ({ data: [] })),
-        API.get('/products/shoes-card/').catch(() => ({ data: [] })),
+        API.get('/api/products/category-cards/').catch(() => ({ data: [] })),
+        API.get('/api/products/bottom-styles/').catch(() => ({ data: [] })),
+        API.get('/api/products/mens-hoodie-grid/').catch(() => ({ data: [] })),
+        API.get('/api/products/jackets-grid/').catch(() => ({ data: [] })),
+        API.get('/api/products/promotional-banners/').catch(() => ({ data: [] })),
+        API.get('/api/products/tshirt-grid/').catch(() => ({ data: [] })),
+        API.get('/api/products/shoes-grid/').catch(() => ({ data: [] })),
+        API.get('/api/products/shoes-card/').catch(() => ({ data: [] })),
       ]);
 
       // Handle both paginated and direct array responses for banners

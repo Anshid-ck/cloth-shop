@@ -95,6 +95,10 @@ CORS_ALLOWED_ORIGINS.extend([
 ])
 CORS_ALLOWED_ORIGINS = list(set(CORS_ALLOWED_ORIGINS))
 
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.vercel\.app$",
+]
+
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_HEADERS = [
@@ -115,6 +119,10 @@ CSRF_TRUSTED_ORIGINS.extend([
     "https://pogieecloth-fashion.onrender.com",
 ])
 CSRF_TRUSTED_ORIGINS = list(set(CSRF_TRUSTED_ORIGINS))
+
+# Allow all Vercel subdomains for CSRF (assuming Django 4.0+ trust logic if applicable, otherwise specific origins are needed)
+# Note: Django CSRF doesn't support regex wildcards easily, but some setups might. 
+# For now, we rely on CORS for data fetching. Login from previews might require exact match.
 
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
