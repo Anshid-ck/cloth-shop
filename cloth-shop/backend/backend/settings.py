@@ -87,14 +87,13 @@ MIDDLEWARE = [
     'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 CORS_ALLOW_ALL_ORIGINS = False
-CORS_ALLOWED_ORIGINS = env.list(
-    'CORS_ALLOWED_ORIGINS',
-    default=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "https://cloth-shop-red.vercel.app"
-    ]
-)
+CORS_ALLOWED_ORIGINS = env.list('CORS_ALLOWED_ORIGINS', default=[])
+CORS_ALLOWED_ORIGINS.extend([
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "https://cloth-shop-red.vercel.app",
+])
+CORS_ALLOWED_ORIGINS = list(set(CORS_ALLOWED_ORIGINS))
 
 CORS_ALLOW_CREDENTIALS = True
 
@@ -109,14 +108,13 @@ CORS_ALLOW_HEADERS = [
     "x-requested-with",
 ]
 
-CSRF_TRUSTED_ORIGINS = env.list(
-    'CSRF_TRUSTED_ORIGINS',
-    default=[
-        "http://localhost:5173",
-        "https://cloth-shop-red.vercel.app",
-        "https://pogieecloth-fashion.onrender.com"
-    ]
-)
+CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[])
+CSRF_TRUSTED_ORIGINS.extend([
+    "http://localhost:5173",
+    "https://cloth-shop-red.vercel.app",
+    "https://pogieecloth-fashion.onrender.com",
+])
+CSRF_TRUSTED_ORIGINS = list(set(CSRF_TRUSTED_ORIGINS))
 
 
 ALLOWED_HOSTS = env.list(
