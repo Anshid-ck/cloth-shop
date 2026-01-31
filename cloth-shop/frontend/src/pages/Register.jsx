@@ -279,7 +279,7 @@ export default function Register() {
                 onSuccess={handleGoogleSuccess}
                 onError={handleGoogleError}
                 useOneTap
-                width="100%"
+                width="350"
                 theme="filled_blue"
                 shape="rectangular"
                 locale="en"
