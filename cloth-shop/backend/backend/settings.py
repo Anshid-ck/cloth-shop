@@ -169,11 +169,19 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # }
 import dj_database_url
 
-DATABASES = {
-    "default": dj_database_url.parse(
-        env("DATABASE_URL")
-    )
-}
+# Database Configuration
+# Fallback to sqlite if DATABASE_URL is not set (e.g. during build or local dev without env)
+if env("DATABASE_URL", default=None):
+    DATABASES = {
+        "default": dj_database_url.parse(env("DATABASE_URL"))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 
@@ -304,7 +312,7 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'verbose',
         },
