@@ -34,7 +34,7 @@ else:
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY', default='your-secret-key-here')
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', default=False)
@@ -87,19 +87,19 @@ MIDDLEWARE = [
     'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 CORS_ALLOW_ALL_ORIGINS = False
-CORS_ALLOWED_ORIGINS = env.list('CORS_ALLOWED_ORIGINS', default=[])
-CORS_ALLOWED_ORIGINS.extend([
+
+CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "https://cloth-shop-red.vercel.app",
-])
-CORS_ALLOWED_ORIGINS = list(set(CORS_ALLOWED_ORIGINS))
+    "https://pogieecloth-fashion.onrender.com",
+]
+
+CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https://.*\.vercel\.app$",
 ]
-
-CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_HEADERS = [
     "accept",
@@ -115,6 +115,7 @@ CORS_ALLOW_HEADERS = [
 CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[])
 CSRF_TRUSTED_ORIGINS.extend([
     "http://localhost:5173",
+    "http://127.0.0.1:5173",
     "https://cloth-shop-red.vercel.app",
     "https://pogieecloth-fashion.onrender.com",
 ])
@@ -283,8 +284,8 @@ SIMPLE_JWT = {
 }
 
 # Google OAuth
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = env('GOOGLE_OAUTH_CLIENT_ID', default='')
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = env('GOOGLE_OAUTH_CLIENT_SECRET', default='')
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = env('GOOGLE_OAUTH_CLIENT_ID')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = env('GOOGLE_OAUTH_CLIENT_SECRET')
 
 FRONTEND_URL = env('FRONTEND_URL', default='http://localhost:5173')
 
@@ -298,8 +299,8 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD', default='')
 DEFAULT_FROM_EMAIL = env('EMAIL_HOST_USER', default='')
 
 # Stripe Configuration
-STRIPE_PUBLIC_KEY = env('STRIPE_PUBLISHABLE_KEY', default='')
-STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY', default='')
+STRIPE_PUBLIC_KEY = env('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
 
 LOGGING = {
     'version': 1,

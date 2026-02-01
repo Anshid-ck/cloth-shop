@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('users.urls')),
+    path('auth/', include('users.urls')), # Fallback for legacy or misconfigured frontend calls
     path('api/products/', include('products.urls')),
     path('api/orders/', include('orders.urls')),
     path('api/cart/', include('cart.urls')),
